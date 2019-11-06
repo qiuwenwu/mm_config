@@ -1,0 +1,11 @@
+{
+	"name": "mm_config",
+	"version": "1.0.0",
+	"description": "这是用来读写*.json配置文件的模块，可以在读写变量的同时保存到*.json文件",
+	"main": "base.js",
+	"scripts": {
+		"test": "node test.js"
+	},
+	"author": "邱文武",
+	"license": "ISC"
+}
