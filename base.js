@@ -11,6 +11,29 @@ class Base {
 }
 
 /**
+ * 回调函数
+ * @param {String} name 函数名
+ * @param {Object} param 参数1
+ * @param {Object} paramB 参数2
+ * @param {Object} paramC 参数3
+ * @return {Object} 返回执行结果
+ */
+Base.prototype.func = function(name, paramA, paramB, paramC) {
+	var func = this[name];
+	if (func) {
+		if (paramC) {
+			return func(paramA, paramB, paramC);
+		} else if (paramB) {
+			return func(paramA, paramB, paramC);
+		} else {
+			return func(paramA);
+		}
+	} else {
+		return undefined
+	}
+};
+
+/**
  * 事件驱动函数
  * @param {String} name
  * @param {Object} param
