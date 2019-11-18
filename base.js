@@ -11,25 +11,27 @@ class Base {
 }
 
 /**
- * 回调函数
+ * 回调函数(中控)
  * @param {String} name 函数名
- * @param {Object} param 参数1
- * @param {Object} paramB 参数2
- * @param {Object} paramC 参数3
- * @return {Object} 返回执行结果
+ * @param {Object} param1
+ * @param {Object} param2
+ * @param {Object} param3
+ * @return {Object} 任意值
  */
-Base.prototype.func = function(name, paramA, paramB, paramC) {
-	var func = this[name];
-	if (func) {
-		if (paramC) {
-			return func(paramA, paramB, paramC);
-		} else if (paramB) {
-			return func(paramA, paramB, paramC);
+Base.prototype.func = function(name, param1, param2, param3) {
+	var funObj = this[name];
+	if (funObj) {
+		if (param1 === undefined) {
+			return funObj()
+		} else if (param2 === undefined) {
+			return funObj(param1)
+		} else if (param3 === undefined) {
+			return funObj(param1, param2)
 		} else {
-			return func(paramA);
+			return funObj(param1, param2, param3);
 		}
 	} else {
-		return undefined
+		return null;
 	}
 };
 
