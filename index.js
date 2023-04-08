@@ -1,113 +1,24 @@
-const Base = require('./Base');
-const Item = require('./item');
+require("mm_expand");
 
 /**
- * @description 项目
- * @class
+ * 重够配置，同步保存
+ * @param {Object} _config 配置对象
+ * @param {String} _jsonFile 配置文件
  */
-class Index extends Base {
-	/**
-	 * @description 构造函数
-	 * @param {String} dir
-	 * @param {String} scope
-	 */
-	constructor(dir, scope) {
-		// 文件路径
-		this.filename = "";
-		// 配置列表
-		this.list = [];
-		// 项目
-		this.item = item;
+module.exports = function(_config, _jsonFile) {
+	if (!_jsonFile) {
+		_jsonFile = this.filename;
 	}
-}
-
-/**
- * 增
- * @param {Object} param
- */
-Index.prototype.add_main = function(param) {
-	if (param.constructor == this.item.constructor) {
-		this.list.push(param);
-	} else if (param.filename && param.config) {
-		var o = new this.item();
-		this.list.push();
+	if (!_config) {
+		_config = _jsonFile.loadJson() || {};
 	}
-};
-
-/**
- * 删
- * @param {Object} param
- */
-Index.prototype.del_main = function(param) {
-	var lt = this.list;
-	var query = {};
-	if (typeof(param) == 'string') {
-		query.name = param;
-	} else {
-
-	}
-	for (var i = lt.length - 1; i > 0; i--) {
-		var cg = lt[i].config;
-		if ($.as(cg, query)) {
-
+	return new Proxy(_config, {
+		set: function(obj, prop, value) {
+			obj[prop] = value;
+			if (_jsonFile) {
+				_jsonFile.saveJson(obj);
+			}
+			return true
 		}
-	}
-};
-
-/**
- * 改
- * @param {Object} param
- */
-Index.prototype.set_main = function(param) {
-	this.list.del({}, param);
-};
-
-/**
- * 查
- * @param {Object} param
- */
-Index.prototype.get_main = function(param) {
-
-};
-
-/**
- * 更新
- * @param {Object} param
- */
-Index.prototype.update_main = function(param) {
-
-};
-
-/**
- * 加载
- * @param {Object} param
- */
-Index.prototype.load_main = function(param) {
-
-};
-
-/**
- * 保存
- * @param {Object} param
- */
-Index.prototype.save_main = function(param) {
-
-};
-
-/**
- * 排序
- * @param {Object} param
- */
-Index.prototype.sort_main = function(param) {
-
-};
-
-/**
- * 运行
- * @param {Object} param
- */
-Index.prototype.run_main = function(param) {
-
-};
-
-module.exports = list;
+	});
+}

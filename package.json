@@ -1,11 +1,29 @@
 {
-	"name": "mm_config",
-	"version": "1.0.0",
-	"description": "这是用来读写*.json配置文件的模块，可以在读写变量的同时保存到*.json文件",
-	"main": "base.js",
-	"scripts": {
-		"test": "node test.js"
-	},
-	"author": "邱文武",
-	"license": "ISC"
+    "name": "mm_config",
+    "version": "1.0.9",
+    "description": "这是超级美眉配置同步器,用于更改配置同步保存为JSON文件",
+    "main": "index.js",
+    "scripts": {
+        "test": "node test.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/qiuwenwu/mm_config.git"
+    },
+    "keywords": [
+        "config",
+        "JSON",
+        "file",
+        "sync"
+    ],
+    "author": "邱文武",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/qiuwenwu/mm_config/issues"
+    },
+    "homepage": "https://github.com/qiuwenwu/mm_config#readme",
+    "dependencies": {
+        "json5": "^2.2.3",
+        "mm_expand": "^1.5.4"
+    }
 }
