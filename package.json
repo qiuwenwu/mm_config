@@ -1,6 +1,6 @@
 {
     "name": "mm_config",
-    "version": "1.0.9",
+    "version": "1.1.0",
     "description": "这是超级美眉配置同步器,用于更改配置同步保存为JSON文件",
     "main": "index.js",
     "scripts": {
@@ -24,6 +24,6 @@
     "homepage": "https://github.com/qiuwenwu/mm_config#readme",
     "dependencies": {
         "json5": "^2.2.3",
-        "mm_expand": "^1.5.4"
+        "mm_expand": "^1.5.9"
     }
 }
